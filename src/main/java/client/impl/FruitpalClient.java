@@ -1,11 +1,11 @@
-package client;
+package client.impl;
 
-import dao.impl.FruitDAOImpl;
-import dto.fruit.CommodityDTO;
+import client.CommodityClient;
+import dao.impl.FruitDAO;
 import dto.fruit.FruitDTO;
 import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Command;
-import service.FruitService;
+import service.impl.FruitService;
 
 import java.text.NumberFormat;
 import java.util.List;
@@ -28,7 +28,7 @@ public class FruitpalClient implements CommodityClient<FruitDTO>, Callable<Integ
     private FruitService fruitService;
 
     public FruitpalClient() {
-        this.fruitService = new FruitService(new FruitDAOImpl());
+        this.fruitService = new FruitService(new FruitDAO());
     }
 
     @Override

@@ -10,4 +10,6 @@ import lombok.Setter;
 public abstract class Commodity {
     @JsonProperty(value = "COUNTRY")
     private String country;
+    @JsonProperty(value = "COMMODITY")
+    private String commodity;
 }

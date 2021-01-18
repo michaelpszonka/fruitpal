@@ -1,8 +1,8 @@
-import dao.impl.FruitDAOImpl;
+import dao.impl.FruitDAO;
 import dto.fruit.FruitDTO;
 import org.junit.Before;
 import org.junit.Test;
-import service.FruitService;
+import service.impl.FruitService;
 
 import java.util.Iterator;
 import java.util.List;
@@ -16,7 +16,7 @@ public class FruitServiceTest {
 
     @Before
     public void setup() {
-        fruitService = new FruitService(new FruitDAOImpl("json/testFruitPricing.json"));
+        fruitService = new FruitService(new FruitDAO("json/testFruitPricing.json"));
     }
 
     @Test
@@ -25,8 +25,8 @@ public class FruitServiceTest {
         double tonnagePrice = 51.0;
         String mango = "mango";
         String apple = "Apple";
-        List<FruitDTO> mangoData = fruitService.getFruitPricing(mango, tonnagePrice, volume);
-        List<FruitDTO> appleData = fruitService.getFruitPricing(apple, tonnagePrice, volume);
+        List<FruitDTO> mangoData = fruitService.getPricingDetails(mango, tonnagePrice, volume);
+        List<FruitDTO> appleData = fruitService.getPricingDetails(apple, tonnagePrice, volume);
 
         assertEquals(4, mangoData.size());
         assertEquals(2, appleData.size());
@@ -41,7 +41,7 @@ public class FruitServiceTest {
         double mangoVariableCost = 1.42;
         double expectedTotalCost = volume * (tonnagePrice + mangoVariableCost) + mangoFixedCost;
 
-        Optional<FruitDTO> brazilianMangos = fruitService.getFruitPricing(mango, tonnagePrice, volume)
+        Optional<FruitDTO> brazilianMangos = fruitService.getPricingDetails(mango, tonnagePrice, volume)
                                                 .stream()
                                                 .filter(record -> record.getCountry().equalsIgnoreCase("BR") &&
                                                         record.getCommodity().equalsIgnoreCase("mango"))
@@ -53,7 +53,7 @@ public class FruitServiceTest {
 
     @Test
     public void testTotalCostDescendingPricingOrder() {
-        List<FruitDTO> mangos = fruitService.getFruitPricing("mango", 53, 405);
+        List<FruitDTO> mangos = fruitService.getPricingDetails("mango", 53, 405);
         Iterator<FruitDTO> iter = mangos.iterator();
         FruitDTO curr, prev = iter.next();
 

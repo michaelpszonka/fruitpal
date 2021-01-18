@@ -1,4 +1,11 @@
 package dto.fruit;
 
-public class CommodityDTO {
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+@Getter @Setter
+public abstract class CommodityDTO {
+    private String country;
 }

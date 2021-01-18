@@ -12,16 +12,16 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-public class FruitDAOImpl implements CommodityDAO<Fruit> {
+public class FruitDAO implements CommodityDAO<Fruit> {
 
     private String filePath;
 
-    public FruitDAOImpl() {
+    public FruitDAO() {
         Properties config = PropertiesLoader.loadProperties("application.properties");
         this.filePath = config.getProperty("fruit-file-path");
     }
 
-    public FruitDAOImpl(String filePath) {
+    public FruitDAO(String filePath) {
         this.filePath = filePath;
     }
 

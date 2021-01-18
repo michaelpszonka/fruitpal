@@ -1,4 +1,4 @@
-import client.FruitpalClient;
+import client.impl.FruitpalClient;
 import picocli.CommandLine;
 
 public class Main {

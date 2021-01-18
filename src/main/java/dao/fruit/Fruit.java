@@ -9,8 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Fruit extends Commodity {
-    @JsonProperty(value = "COMMODITY")
-    private String commodity;
     @JsonProperty(value = "FIXED_OVERHEAD")
     private double fixedOverhead;
     @JsonProperty(value = "VARIABLE_OVERHEAD")
