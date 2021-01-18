@@ -1,0 +1,50 @@
+[
+  {
+    "COUNTRY": "MX",
+    "COMMODITY": "mango",
+    "FIXED_OVERHEAD": "32.00",
+    "VARIABLE_OVERHEAD": "1.24"
+  },
+  {
+    "COUNTRY": "BR",
+    "COMMODITY": "mango",
+    "FIXED_OVERHEAD": "20.00",
+    "VARIABLE_OVERHEAD": "1.42"
+  },
+  {
+    "COUNTRY": "UK",
+    "COMMODITY": "banana",
+    "FIXED_OVERHEAD": "20.00",
+    "VARIABLE_OVERHEAD": "12.42"
+  },
+  {
+    "COUNTRY": "US",
+    "COMMODITY": "orange",
+    "FIXED_OVERHEAD": "2.00",
+    "VARIABLE_OVERHEAD": "4.56"
+  },
+  {
+    "COUNTRY": "US",
+    "COMMODITY": "apple",
+    "FIXED_OVERHEAD": "15.00",
+    "VARIABLE_OVERHEAD": "6.19"
+  },
+  {
+    "COUNTRY": "CO",
+    "COMMODITY": "mango",
+    "FIXED_OVERHEAD": "2.00",
+    "VARIABLE_OVERHEAD": "1.23"
+  },
+  {
+    "COUNTRY": "AR",
+    "COMMODITY": "mango",
+    "FIXED_OVERHEAD": "28.00",
+    "VARIABLE_OVERHEAD": "1.04"
+  },
+  {
+    "COUNTRY": "AR",
+    "COMMODITY": "apple",
+    "FIXED_OVERHEAD": "28.00",
+    "VARIABLE_OVERHEAD": "1.04"
+  }
+]
