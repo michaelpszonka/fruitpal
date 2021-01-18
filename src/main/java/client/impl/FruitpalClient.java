@@ -1,6 +1,7 @@
 package client;
 
 import dao.impl.FruitDAOImpl;
+import dto.fruit.CommodityDTO;
 import dto.fruit.FruitDTO;
 import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Command;
@@ -13,7 +14,7 @@ import java.util.concurrent.Callable;
 
 @Command(name = "fruitpal", description = "Consumes a fruit, price, and quantity and " +
                                 "returns a summary of acquisition costs by country")
-public class FruitpalClient implements Callable<Integer> {
+public class FruitpalClient implements CommodityClient<FruitDTO>, Callable<Integer> {
 
     @Parameters(index = "0", description = "The fruit being queried for pricing information")
     private String fruit;
@@ -32,13 +33,13 @@ public class FruitpalClient implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-        List<FruitDTO> pricing = this.fruitService.getFruitPricing(this.fruit, this.tonnagePrice, this.volume);
+        List<FruitDTO> pricing = this.fruitService.getPricingDetails(this.fruit, this.tonnagePrice, this.volume);
         summarizeOutput(pricing, this.volume);
 
         return 0;
     }
 
-    public static void summarizeOutput(List<FruitDTO> pricing, double volume) {
+    public void summarizeOutput(List<FruitDTO> pricing, double volume) {
         StringBuilder sb = new StringBuilder();
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
 

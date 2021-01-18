@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FruitService {
+public class FruitService implements CommodityService<FruitDTO, Fruit> {
 
     FruitDAO fruitDAO;
 
@@ -27,9 +27,9 @@ public class FruitService {
      * @param volume - amount of fruit being purchased
      * @return - List of FruitDTOs containing metadata around country, total cost, etc
      */
-    public List<FruitDTO> getFruitPricing(String fruit, double tonnagePrice, double volume) {
+    public List<FruitDTO> getPricingDetails(String fruit, double tonnagePrice, double volume) {
         List<FruitDTO> fruitPricing = new ArrayList<>();
-        List<Fruit> fruits = getFruitDetails(fruit);
+        List<Fruit> fruits = fetchCommodityDetails(fruit);
 
         for(Fruit f : fruits) {
             FruitDTO fruitDTO = new FruitDTO();
@@ -47,7 +47,7 @@ public class FruitService {
         return fruitPricing;
     }
 
-    private List<Fruit> getFruitDetails(String fruit) {
+    public List<Fruit> fetchCommodityDetails(String fruit) {
         return fruitDAO.fetchPricingData()
                                         .stream()
                                         .filter(record ->
