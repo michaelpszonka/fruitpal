@@ -5,14 +5,14 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import config.PropertiesLoader;
+import dao.CommodityDAO;
 import dao.fruit.Fruit;
-import dao.FruitDAO;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
-public class FruitDAOImpl implements FruitDAO {
+public class FruitDAOImpl implements CommodityDAO<Fruit> {
 
     private String filePath;
 
